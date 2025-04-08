@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <title>Flisan's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    ${if-release} <style>${style}</style> ${end-if-release}
+    ${if-debug} <link href="/styles/index.css" rel="stylesheet" /> ${end-if-debug}
+    <meta property="og:title" content="Flisan's Personal Blog">
+    <meta property="og:description" content="このサイトでは、「すげー」と思ったものとか、新しく学んだことなど、紹介したいことを書いて投稿しています。">
+    <meta property="og:image" content="https://blog.f4n.dev/assets/og.png">
+    <meta property="og:url" content="https://blog.f4n.dev/">
+    <meta property="og:site_name" content="Flisan's Personal Blog">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+  </head>
+  <body>
+    <header>
+      <img class="me" src="/assets/me.png" alt="フライさんのアバター" role="presentation" />
+      <hgroup class="site-title">
+        <h1>Flisan's Personal Blog</h1>
+        <p>フライさんの個人ブログ</p>
+      </hgroup>
+      <nav class="links">
+        <a href="https://github.com/loxygenK" target="_blank" rel="noreferrer noopener">
+          GitHub ↗
+        </a>
+        <a href="https://x.com/flisan_rs" target="_blank" rel="noreferrer noopener">
+          X / Twitter ↗
+        </a>
+        <a href="https://keybase.io/loxygenk" target="_blank" rel="noreferrer noopener">
+          Keybase ↗
+        </a>
+      </nav>
+      <p class="introduction">
+        <strong>こんにちは！</strong>訪れていただきありがとうございます。
+        このサイトでは、「すげー」と思ったものとか、新しく学んだことなど、紹介したいことを書いて投稿しています。
+      </p>
+    </header>
+    <main>
+      <ol>
+        ${articles}
+      </ol>
+    </main>
+  </body>
+</html>

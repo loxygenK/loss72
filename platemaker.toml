@@ -1,0 +1,4 @@
+html_template_dir = "./templates"
+article_md_dir = "./content"
+destination = "./dist"
+

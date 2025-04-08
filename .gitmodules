@@ -1,0 +1,3 @@
+[submodule "platemaker"]
+	path = platemaker
+	url = https://github.com/loxygenK/loss72-platemaker
