@@ -17,7 +17,7 @@ function _usage {
   echo "usage: ./build.sh <platemaker version>"
 }
 
-function _main {
+function _pull {
   _deps
 
   local latest_tag=$(_github /releases/latest | jq -r ".name")
@@ -55,13 +55,32 @@ function _main {
 
   echo "  = Release is trusted"
 
-  local platemaker=$(mktemp -d)/platemaker
+  mkdir bin 2>/dev/null || true
+  local platemaker=./bin/platemaker
   curl -L https://github.com/loxygenK/loss72-platemaker/releases/download/$latest_tag/loss72-platemaker -o $platemaker
 
   chmod +x $platemaker
+}
 
-  mkdir dist
-  $platemaker build --release
+function _main {
+  local platemaker=./bin/platemaker
+
+  if [ "${@:-empty}" = "pull" ]; then
+    _pull
+    return 0
+  fi
+
+  if [ ! -f "$platemaker" ]; then
+    _pull
+  fi;
+
+  mkdir dist 2> /dev/null || true
+
+  if [ $# -eq 0 ]; then
+    $platemaker build --release
+  else
+    $platemaker $@
+  fi
 }
 
 _main $@

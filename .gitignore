@@ -1,3 +1,7 @@
 dist
 
 _*.md
+bin/platemaker
+gpg_log
+payload
+sig.asc
